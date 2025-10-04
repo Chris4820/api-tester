@@ -13,14 +13,14 @@ export interface RequestProps {
   method: HttpMethod
   headers: RequestHeaderProps[]
   params: RequestParamProps[]
-  body: any
+  body: string | Record<string, unknown> | null
 }
 
 export type ResponseProps = {
   status: number
   statusText: string
   headers: Record<string, string>
-  data: any
+  data: string | Record<string, unknown> | null
   time: number
   size: number
   finalUrl: string

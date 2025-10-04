@@ -47,8 +47,12 @@ export default function Home() {
       const data: ResponseProps = await res.json()
 
       setResponse(data)
-    } catch (err: any) {
-      setError(err.message || "Request failed")
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError("Request failed")
+      }
     } finally {
       setLoading(false)
     }

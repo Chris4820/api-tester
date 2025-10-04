@@ -1,6 +1,6 @@
 
 interface ResponseBody {
-  data: any;
+  data: string | Record<string, unknown> | null
 }
 
 export default function ResponseBodyTab({ data }: ResponseBody) {

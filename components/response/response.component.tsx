@@ -5,8 +5,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CheckCircle2, XCircle, AlertCircle, Clock } from "lucide-react"
 import ResponseBodyTab from "./parts/response-body"
 import ResponseHeaderTab from "./parts/response-header"
-import type { ResponseProps } from "@/app/page"
 import { getStatusColor } from "@/lib/utils"
+import type { ResponseProps } from "@/types/types"
 interface ResponseViewerProps {
   response: ResponseProps | null
   error: string | null

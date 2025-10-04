@@ -7,8 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { RequestHeaders } from "./parts/request-header.component";
 import { RequestBody } from "./parts/request-body.component";
 import { RequestParams } from "./parts/request-params.component";
-import type { HttpMethod } from "@/types/types";
-import type { RequestHeaderProps, RequestParamProps, RequestProps } from "@/app/page";
+import type { HttpMethod, RequestHeaderProps, RequestParamProps, RequestProps } from "@/types/types";
 import { useState } from "react";
 
 

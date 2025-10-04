@@ -14,12 +14,16 @@ export function RequestBody({ body, setBody }: RequestBodyProps) {
     try {
       JSON.parse(view.state.doc.toString());
       return [] as Diagnostic[];
-    } catch (e: any) {
+    } catch (e: unknown) {
+      let message = "Invalid JSON";
+      if (e instanceof Error) {
+        message = e.message;
+      }
       return [{
         from: 0,
         to: view.state.doc.length,
         severity: "error",
-        message: e.message
+        message
       }];
     }
   });
