@@ -67,14 +67,16 @@ export function ResponseComponent({ response, error, loading }: ResponseViewerPr
               </div>
 
               {response.finalUrl && (
-                <p className="font-mono text-xs text-muted-foreground truncate">{response.finalUrl}</p>
+                <p className="font-mono text-xs text-muted-foreground break-all">
+                  {response.finalUrl}
+                </p>
               )}
             </div>
           </div>
 
           {/* Response Tabs */}
           <Tabs defaultValue="body" className="w-full">
-            <TabsList className="w-full bg-secondary">
+            <TabsList className="w-full bg-secondary flex flex-wrap">
               <TabsTrigger value="body" className="flex-1">
                 Body
               </TabsTrigger>
@@ -84,17 +86,20 @@ export function ResponseComponent({ response, error, loading }: ResponseViewerPr
             </TabsList>
 
             <TabsContent value="body" className="mt-4">
-              <div className="overflow-x-hidden">
+              <div className="overflow-x-auto break-words">
                 <ResponseBodyTab data={response.data} />
               </div>
             </TabsContent>
 
             <TabsContent value="headers" className="mt-4">
-              <ResponseHeaderTab headers={response.headers} />
+              <div className="overflow-x-auto break-words">
+                <ResponseHeaderTab headers={response.headers} />
+              </div>
             </TabsContent>
           </Tabs>
         </div>
       )}
+
 
       {!response && !error && !loading && (
         <div className="flex items-center justify-center py-12">
