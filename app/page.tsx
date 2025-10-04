@@ -31,7 +31,7 @@ export default function Home() {
         body: method !== "GET" && method !== "HEAD" ? body : undefined,
       }
 
-      const res = await fetch('http://127.0.0.1:8787/api/proxy', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_API}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(workerPayload),
